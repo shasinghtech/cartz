@@ -1,0 +1,829 @@
+.deal-container {
+    color: #555;
+
+    h1 {
+        @include rem(font-size, 24px);
+
+        font-weight: 600;
+        color: #555;
+
+        @include rem(margin-bottom, 25px);
+
+        @include rem(line-height, 35px);
+    }
+}
+
+.deal-wrapper {
+    background-color: #f3f4f6;
+
+    @include vendor-prefixes(box-shadow, 0px 0px 10px 0px rgba(0, 0, 0, 0.2));
+
+    .row {
+        > .col-xs-12 {
+            @include respond-to(700px, 767px) {
+                width: 50%;
+            }
+        }
+    }
+}
+
+.car-photo {
+    background-color: #fff;
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+            list-style-type: none;
+            display: none;
+            text-align: center;
+
+            &:first-child {
+                display: block;
+            }
+        }
+    }
+}
+
+.car-short-info {
+    @include respond-to($media-xs, max) {
+        @include rem(padding, 15px);
+    }
+
+
+    h3 {
+        @include rem(font-size, 30px);
+
+        font-weight: 600;
+        color: #555;
+
+        @include rem(margin-bottom, 10px);
+    }
+
+    .version {
+        display: table;
+
+        @include rem(font-size, 14px);
+
+        color: #555;
+
+        @include respond-to($media-xs, max) {
+            width: 100%;
+        }
+
+
+        span {
+            display: table-cell;
+        }
+
+        .select-style {
+            border: 1px solid #ccc;
+            background-color: #f3f4f6;
+            background: #f3f4f6;
+            overflow: inherit;
+            width: 220px;
+            min-height: 33px;
+            margin-left: 15px;
+
+            @include respond-to($media-xs, max) {
+                width: 200px;
+            }
+
+
+            &:after {
+                top: 0;
+                right: 0;
+                content: " ";
+                height: 32px;
+                width: 32px;
+                position: absolute;
+                pointer-events: none;
+                z-index: 100;
+                background: #cccccc url("../images/white-arrow.png") center no-repeat;
+                margin-top: 0;
+            }
+
+            select {
+                @include rem(padding, 5px 40px 5px 8px);
+
+                color: #555555;
+                font-weight: 600;
+
+                @include respond-to($media-xs, max) {
+                    @include rem(padding-top, 8px);
+
+                    @include rem(padding-right, 8px);
+                }
+            }
+        }
+    }
+
+    .color {
+        display: table;
+        margin: 20px 0;
+
+        @include rem(font-size, 14px);
+
+        color: #555;
+
+        span {
+            display: table-cell;
+            vertical-align: middle;
+
+            ul {
+                margin: 0 0 0 29px;
+                padding: 0;
+                font-size: 0;
+
+                li {
+                    list-style-type: none;
+                    display: inline-block;
+                    width: 34px;
+                    height: 32px;
+                    background-color: #fff;
+                    border: 1px solid #cccccc;
+                    margin: 0 10px;
+                    position: relative;
+                    cursor: pointer;
+
+                    &:first-child {
+                        margin-left: 0;
+                    }
+
+                    &:before {
+                        content: none;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 18px;
+                        height: 15px;
+                        transform: translate(50%, 50%);
+                        margin-left: -2px;
+                        background: url("../images/check-white.png") center no-repeat;
+                    }
+
+                    &.active:before {
+                        content: "";
+                    }
+
+                    &.white {
+                        &:before {
+                            background: url("../images/check.png") center no-repeat;
+                        }
+                    }
+
+                    &.blue {
+                        background-color: #537ba6;
+                    }
+
+                    &.green {
+                        background-color: #6ea031;
+                    }
+
+                    &.red {
+                        background-color: #b63d3b;
+                    }
+                }
+            }
+        }
+    }
+
+    .mfr-date {
+        @include rem(font-size, 14px);
+
+        @include rem(margin-bottom, 20px);
+
+        span {
+            font-weight: bold;
+        }
+    }
+
+    .price-info {
+        @include rem(margin-bottom, 15px);
+
+        span {
+            @include rem(font-size, 16px);
+
+            &.discount {
+                color: #379239;
+            }
+
+            &.left-car {
+                color: #b12725;
+            }
+        }
+    }
+
+    .discount-price {
+        h4 {
+            @include rem(font-size, 36px);
+
+            font-weight: 600;
+            color: #1a1d32;
+            margin-bottom: 0;
+
+            @include respond-to(700px, 767px) {
+                @include rem(font-size, 30px);
+            }
+        }
+
+        p {
+            @include rem(font-size, 14px);
+
+            &.exc {
+                @include rem(font-size, 12px);
+
+                @include rem(margin, 15px 0);
+
+                color: #777;
+            }
+        }
+
+        a {
+            @include rem(font-size, 16px);
+
+            @include rem(margin-top, 23px);
+
+            @include rem(margin-bottom, 15px);
+
+            color: #c0612e;
+            display: inline-block;
+        }
+
+        .emi {
+            span {
+                color: #c0612e;
+            }
+        }
+    }
+
+    .action {
+        a {
+            display: inline-block;
+
+            @include rem(margin-right, 20px);
+
+            @include rem(padding, 6px 20px);
+
+            @include rem(font-size, 18px);
+
+            font-weight: 600;
+            color: #fff;
+            border: 1px solid transparent;
+            background-color: #c0612e;
+            text-transform: uppercase;
+
+            @include vendor-prefixes(transition, all 0.3s ease);
+
+            @include respond-to($media-xs, max) {
+                @include rem(margin-right, 10px);
+            }
+
+
+            &:hover, &:focus {
+                background-color: #fff;
+                color: #c0612e;
+                border-color: #c0612e;
+                text-decoration: none;
+            }
+
+            &.emi-btn {
+                background-color: #fff;
+                color: #c0612e;
+                border-color: #c0612e;
+            }
+        }
+
+        p {
+            @include rem(font-size, 12px);
+
+            @include rem(margin-top, 15px);
+
+            color: #777;
+        }
+    }
+}
+
+.city-car {
+    background-color: #fff;
+
+    @include vendor-prefixes(box-shadow, 0px 0px 10px 0px rgba(0, 0, 0, 0.2));
+
+    color: #555555;
+
+    @include respond-to($media-xs, max) {
+        @include rem(margin-bottom, 40px);
+    }
+
+
+    h4 {
+        @include rem(font-size, 19px);
+
+        padding: 15px 10px;
+        margin: 0;
+    }
+
+    .view {
+        @include rem(font-size, 13px);
+
+        font-weight: 600;
+        color: #c0612e;
+        text-transform: uppercase;
+
+        @include rem(padding, 15px 10px);
+
+        border-top: 1px solid #ccc;
+        text-align: center;
+
+        a {
+            color: #c0612e;
+            display: inline-block;
+            position: relative;
+
+            &:not([href]) {
+                &:before {
+                    content: none;
+                }
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                bottom: 0;
+                left: 0;
+                background-color: #c0612e;
+                visibility: hidden;
+
+                @include vendor-prefixes(transform, scaleX(0));
+
+                @include vendor-prefixes(transition, all 0.3s ease-in-out 0s);
+            }
+
+            &:focus {
+                text-decoration: none;
+            }
+
+            &:hover {
+                text-decoration: none;
+
+                &:before {
+                    visibility: visible;
+
+                    @include vendor-prefixes(transform, scaleX(1));
+                }
+            }
+        }
+    }
+}
+
+.city-car-list {
+    display: table;
+    width: 100%;
+    border-top: 1px solid #ccc;
+
+    a {
+        color: #555555;
+        display: block;
+
+        &:hover, &:focus {
+            text-decoration: none;
+        }
+    }
+
+    .car-photo, .car-details {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 15px 10px;
+    }
+
+    .car-photo {
+        width: 115px;
+
+        @include respond-to(640px, 767px) {
+            width: 100px;
+        }
+    }
+
+    .car-details {
+        h5 {
+            @include rem(font-size, 11px);
+
+            font-weight: bold;
+            color: #555555;
+            margin: 0;
+
+            @include rem(margin-bottom, 5px);
+        }
+
+        p {
+            @include rem(font-size, 10px);
+
+            margin: 0;
+
+            &.off-price {
+                @include rem(font-size, 11px);
+
+                @include rem(margin-bottom, 5px);
+            }
+
+            &.offer-price {
+                @include rem(font-size, 15px);
+
+                font-weight: 800;
+            }
+        }
+    }
+}
+
+.user-benefit {
+    background-color: #fff;
+
+    @include vendor-prefixes(box-shadow, 0px 0px 10px 0px rgba(0, 0, 0, 0.2));
+
+    color: #555555;
+
+    @include rem(margin, 15px 0);
+
+    text-align: center;
+
+    @include respond-to($media-xs, max) {
+        @include rem(padding, 15px);
+    }
+
+
+    h4, h2 {
+        @include rem(font-size, 18px);
+
+        font-weight: 600;
+        color: #1a1d32;
+        margin: 0;
+
+        @include rem(padding, 15px);
+
+        border-bottom: 1px solid #cccccc;
+    }
+
+    h2 {
+        @include rem(font-size, 24px);
+
+        @include rem(padding, 25px);
+
+        @include rem(margin-bottom, 25px);
+
+        text-transform: uppercase;
+    }
+
+    h3 {
+        @include rem(font-size, 24px);
+
+        font-weight: 600;
+        margin: 0;
+
+        @include respond-to($media-xs, max) {
+            @include rem(margin-bottom, 10px);
+        }
+
+
+        @include respond-to(667px, 767px) {
+            @include multiline-text(2.4rem, 1.3, 2);
+        }
+    }
+
+    p {
+        @include rem(font-size, 14px);
+
+        @include respond-to(667px, 767px) {
+            @include multiline-text(1.4rem, 1.3, 3);
+        }
+    }
+
+    .row > div {
+        position: relative;
+
+        @include rem(margin-top, 15px);
+
+        @include rem(margin-bottom, 15px);
+
+        border-right: 1px solid #cccccc;
+
+        &:last-child {
+            border-right: none;
+        }
+
+        @include respond-to(600px, max) {
+            border-right: none;
+        }
+
+
+        @include respond-to(667px, 767px) {
+            width: 33.33333%;
+            min-height: 65px;
+        }
+    }
+
+    &.option-2 {
+        @include rem(padding-bottom, 25px);
+
+        h3 {
+            @include rem(margin-bottom, 15px);
+        }
+    }
+
+    .benefit {
+        p {
+            @include rem(font-size, 22px);
+
+            font-weight: 600;
+            margin-bottom: 0;
+
+            a {
+                color: #c0612e;
+            }
+        }
+    }
+}
+
+.offer-container {
+    @include rem(margin-top, 28px);
+
+    h2 {
+        @include rem(font-size, 24px);
+
+        font-weight: 600;
+
+        @include rem(margin-left, 60px);
+
+        @include rem(margin-bottom, 20px);
+
+        @include respond-to($media-xs, max) {
+            margin-left: 0;
+        }
+    }
+}
+
+.offer-wrapper {
+    background-color: #fff;
+
+    @include vendor-prefixes(box-shadow, 0px 0px 10px 0px rgba(0, 0, 0, 0.2));
+
+    color: #555555;
+
+    .table-responsive {
+        @include respond-to($media-xs, max) {
+            border: none;
+        }
+    }
+
+    .table > thead > tr > th {
+        background-color: #f3f4f6;
+
+        @include rem(padding, 15px 5px);
+
+        @include rem(font-size, 18px);
+
+        font-weight: normal;
+        border-bottom: 1px solid #ccc;
+    }
+
+    h4 {
+        @include rem(font-size, 24px);
+
+        font-weight: 600;
+        color: #c0612e;
+
+        a {
+            display: inline-block;
+            color: #c0612e;
+        }
+    }
+
+    p {
+        @include rem(font-size, 16px);
+
+        font-weight: 600;
+    }
+
+    .table > tbody > tr > td {
+        vertical-align: middle;
+
+        > span {
+            @include rem(font-size, 24px);
+
+            font-weight: 600;
+
+            &.cut {
+                text-decoration: line-through;
+            }
+
+            &.green {
+                color: #379239;
+            }
+
+            &.blue {
+                color: #1a1d32;
+            }
+        }
+    }
+
+    .assistance {
+        @include rem(padding, 20px 35px);
+
+        border-top: 1px solid #ccc;
+
+        @include respond-to($media-xs, max) {
+            @include rem(padding, 15px);
+        }
+
+
+        .row {
+            > .col-xs-12 {
+                @include respond-to(640px, 767px) {
+                    width: 45%;
+                }
+
+
+                &:last-child {
+                    @include respond-to(640px, 767px) {
+                        width: 55%;
+                    }
+                }
+            }
+        }
+
+        .mobile-div {
+            position: relative;
+            display: table;
+            border-collapse: separate;
+
+            @include rem(margin-bottom, 8px);
+
+            input[type=text] {
+                display: table-cell;
+                position: relative;
+                z-index: 2;
+                float: left;
+                width: 100%;
+                margin-bottom: 0;
+                min-height: 40px;
+                border: 1px solid #ccc;
+                border-right-color: transparent;
+                padding: 8px 10px;
+
+                &:focus {
+                    outline: 0;
+                }
+            }
+
+            .button {
+                display: table-cell;
+                position: relative;
+
+                //font-size: 0;
+                white-space: nowrap;
+                width: 1%;
+                vertical-align: middle;
+
+                button {
+                    background-color: #c0612e;
+                    color: #fff;
+
+                    @include rem(font-size, 18px);
+
+                    font-weight: 600;
+                    border: none;
+
+                    @include rem(padding, 7px 20px);
+
+                    min-height: 40px;
+
+                    &:focus, &:active {
+                        outline: 0;
+                    }
+                }
+            }
+        }
+
+        p {
+            @include rem(font-size, 14px);
+
+            font-weight: normal;
+        }
+
+        h5 {
+            @include rem(font-size, 16px);
+
+            text-align: right;
+
+            @include rem(margin-top, 12px);
+
+            @include respond-to($media-xs, max) {
+                line-height: 20px;
+                text-align: left;
+            }
+
+
+            span {
+                font-weight: 600;
+
+                a {
+                    color: #c0612e;
+                }
+            }
+        }
+    }
+}
+
+.bottom-row {
+    @include rem(margin-top, 30px);
+    @include respond-to(768px, 990px) {
+        @include rem(margin-bottom, 30px);
+    }
+
+    .row {
+        > .col-xs-12 {
+            @include respond-to(640px, 767px) {
+                width: 60%;
+            }
+
+
+            &:last-child {
+                @include respond-to(640px, 767px) {
+                    width: 40%;
+                }
+            }
+        }
+    }
+}
+
+.feature-row {
+    background-color: #fff;
+
+    @include vendor-prefixes(box-shadow, 0px 0px 10px 0px rgba(0, 0, 0, 0.2));
+
+    color: #555555;
+
+    .nav-tabs {
+        width: 100%;
+        border-bottom: 1px solid #ccc;
+
+        > li {
+            display: table-cell;
+            width: 1%;
+
+            > a {
+                @include rem(padding, 21px);
+
+                border-bottom: 2px solid transparent;
+
+                &:hover {
+                    background-color: transparent;
+                    border-color: transparent;
+                }
+
+                @include respond-to($media-xs, max) {
+                    @include rem(font-size, 16px);
+
+                    @include rem(padding, 10px);
+                }
+
+
+                @include respond-to(640px, $media-xs) {
+                    @include rem(padding, 16px);
+                }
+
+                @include respond-to($media-sm, 990px) {
+                    @include rem(font-size, 16px);
+                    @include rem(padding, 12px);
+                }
+            }
+
+            &.active {
+                > a {
+                    border-bottom: 2px solid #c0612e;
+                }
+            }
+        }
+    }
+
+    .tab-container {
+        @include rem(margin, 35px);
+
+        @include respond-to($media-xs, max) {
+            @include rem(margin, 15px);
+
+            padding-bottom: 15px;
+        }
+
+
+        h3 {
+            @include rem(font-size, 24px);
+
+            font-weight: 600;
+
+            @include rem(margin-bottom, 20px);
+        }
+    }
+}

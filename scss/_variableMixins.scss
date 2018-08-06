@@ -1,0 +1,255 @@
+@mixin respond-to($val, $val2: none) {
+    @if $val2 == none {
+        @media (min-width: $val) {
+            @content;
+        }
+    }
+    @else if $val2 == max {
+        @media (max-width: $val) {
+            @content;
+        }
+    }
+    @else {
+        @media (min-width: $val) and (max-width: $val2) {
+            @content;
+        }
+    }
+}
+
+/*
+.className {
+  @include respond-to($media-sm) {
+    border:solid 10px red; 
+  }
+  @include respond-to($media-md, $media-lg) {
+    border:solid 10px yellow; 
+  }
+  @include respond-to($media-xs, max) {
+    border:solid 10px green; 
+  }
+}
+*/
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin vendor-prefixes($property, $value) {
+    @each $prop in "-webkit-", "-moz-", "-ms-", "-o-", "" {
+        #{$prop}#{$property}: $value;
+    }
+}
+
+//@include vendor-prefixes(border-radius, 5px);
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: "") {
+    -webkit-box-shadow: $top $left $blur $color #{$inset};
+    -moz-box-shadow: $top $left $blur $color #{$inset};
+    box-shadow: $top $left $blur $color #{$inset};
+}
+
+@mixin multiline-text($font-size, $line-height, $lines-to-show) {
+    display: block;
+
+    /* Fallback for non-webkit */
+    display: -webkit-box;
+    height: $font-size * $line-height * $lines-to-show;
+    font-size: $font-size;
+    line-height: $line-height;
+    -webkit-line-clamp: $lines-to-show;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@function parseInt($n) {
+    /* 2 */
+    @return $n / ($n * 0 + 1);
+}
+
+@mixin rem($property, $values) {
+    $px: ();
+
+    /* 3 */
+    $rem: ();
+
+    /* 3 */
+
+    @each $value in $values {
+        /* 4 */
+
+        @if $value == 0 or $value == auto {
+            /* 5 */
+            $px: append($px, $value);
+            $rem: append($rem, $value);
+        }
+        @else {
+            $unit: unit($value);
+
+            /* 6 */
+            $val: parseInt($value);
+
+            /* 6 */
+
+            @if $unit == "px" {
+                /* 7 */
+                $px: append($px, $value);
+                $rem: append($rem, $val / 10 + rem);
+            }
+
+            @if $unit == "rem" {
+                /* 7 */
+                $px: append($px, $val * 10 + px);
+                $rem: append($rem, $value);
+            }
+        }
+    }
+
+    @if $px == $rem {
+        /* 8 */
+        #{$property}: $px;
+
+        /* 9 */
+    }
+    @else {
+        #{$property}: $px;
+
+        /* 9 */
+        #{$property}: $rem;
+
+        /* 9 */
+    }
+}
+
+//@include multiline-text(13px, 1.5, 3);
+
+// Assuming the parent element has position: relative;
+@mixin centerer($horizontal: true, $vertical: true) {
+    position: absolute;
+
+    @if $horizontal and $vertical {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    @else if $horizontal {
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+    @else if $vertical {
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+}
+
+//@include centerer; horizontal - @include center(true, false); vertical - @include center(false, true);
+
+/*
+* Mixin for basic CSS triangles
+* @include triangle(up, #000, 50px);
+* @include triangle(bottomleft, #000, 50px);
+*/
+@mixin triangle($direction: up, $color: #000, $size: 100px) {
+    @if $direction == up {
+        border-color: transparent transparent $color;
+        border-style: solid;
+        border-width: 0 $size $size;
+        height: 0;
+        width: 0;
+    }
+
+    @if $direction == down {
+        border-color: $color transparent transparent transparent;
+        border-style: solid;
+        border-width: $size;
+        height: 0;
+        width: 0;
+    }
+
+    @if $direction == left {
+        border-color: transparent $color transparent transparent;
+        border-style: solid;
+        border-width: $size $size $size 0;
+        height: 0;
+        width: 0;
+    }
+
+    @if $direction == right {
+        border-color: transparent transparent transparent $color;
+        border-style: solid;
+        border-width: $size 0 $size $size;
+        height: 0;
+        width: 0;
+    }
+
+    @if $direction == bottomright {
+        border-color: transparent transparent $color transparent;
+        border-style: solid;
+        border-width: 0 0 $size $size;
+        height: 0;
+        width: 0;
+    }
+
+    @if $direction == bottomleft {
+        border-color: transparent transparent transparent $color;
+        border-style: solid;
+        border-width: $size 0 0 $size;
+        height: 0;
+        width: 0;
+    }
+
+    @if $direction == topleft {
+        border-color: $color transparent transparent transparent;
+        border-style: solid;
+        border-width: $size $size 0 0;
+        height: 0;
+        width: 0;
+    }
+
+    @if $direction == topright {
+        border-color: transparent $color transparent transparent;
+        border-style: solid;
+        border-width: 0 $size $size 0;
+        height: 0;
+        width: 0;
+    }
+}
+
+/// Shorthand mixin for offset positioning
+/// @param {String} $position - Either `relative`, `absolute` or `fixed`
+/// @param {Length} $top [null] - Top offset
+/// @param {Length} $right [null] - Right offset
+/// @param {Length} $bottom [null] - Bottom offset
+/// @param {Length} $left [null] - Left offset
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin centerer-img($height) {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    width: 100%; /*customize to your needs 100%*/
+    height: $height; /*customize to your needs*/
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+$bodyColor: #ededed;
+$blueColor: #151728;
+$lightBlue: #1a1d32;
+
+$media-mob: 640px;
+$media-xs: 767px;
+$media-sm: 768px;
+$media-md: 992px;
+$media-lg: 1200px;

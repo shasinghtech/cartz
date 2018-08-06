@@ -1,0 +1,19 @@
+doctype
+html(lang='en')
+	include ../includes/head
+	block body
+	body(class=authenticated ? 'home' : '')
+		// Start Header
+		include ../includes/header
+		// End Header
+				
+		block content
+				| this would be replaced by the page' partial HTML content
+
+		// Start Footer
+		include ../includes/footer
+		// End Footer            
+
+		// Start scripts include
+		include ../includes/footer-scripts
+		// End scripts include

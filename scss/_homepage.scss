@@ -1,0 +1,844 @@
+.tab-wrapper {
+    @include rem(margin-top, 110px);
+
+    @include respond-to($media-xs, max) {
+        @include rem(margin-top, 10px);
+    }
+}
+
+.nav-tabs {
+    text-align: center;
+    border-bottom: none;
+
+    @include respond-to($media-xs, max) {
+        width: 100%;
+    }
+
+
+    > li {
+        float: none;
+        display: inline-block;
+        zoom: 1;
+
+        @include rem(margin, 0 15px);
+
+        @include respond-to($media-xs, max) {
+            display: table-cell;
+            width: 1%;
+        }
+
+
+        > a {
+            @include rem(font-size, 24px);
+
+            text-transform: uppercase;
+            color: #999999;
+            border-bottom: 2px solid #cccccc;
+
+            @include respond-to($media-xs, max) {
+                @include rem(font-size, 18px);
+            }
+        }
+
+        &.active {
+            > a, > a:focus, > a:hover {
+                color: #1a1d32;
+                cursor: default;
+                background-color: transparent;
+                border: none;
+                border-bottom: 2px solid #c0612e;
+            }
+        }
+    }
+}
+
+.tab-container {
+    @include rem(margin, 40px 0);
+
+    @include respond-to($media-xs, max) {
+        @include rem(margin, 20px 0);
+    }
+
+
+    .main-row {
+        > .col-xs-12 {
+            @include respond-to(500px, 767px) {
+                width: 50%;
+            }
+        }
+    }
+}
+
+.cars-list {
+    background-color: #fff;
+
+    @include rem(padding, 20px);
+
+    @include rem(margin-bottom, 30px);
+
+    @include vendor-prefixes(box-shadow, 3px 3px 10px 0px rgba(0, 0, 0, 0.13));
+
+    min-height: 270px;
+
+    @include respond-to($media-xs, max) {
+        min-height: auto;
+    }
+
+
+    h4 {
+        @include rem(font-size, 18px);
+
+        color: #1a1d32;
+    }
+
+    h1 {
+        @include rem(font-size, 36px);
+
+        color: #555;
+        font-weight: 600;
+
+        @include rem(margin-bottom, 0);
+
+        @include respond-to($media-xs, max) {
+            @include rem(font-size, 26px);
+        }
+    }
+
+    p {
+        @include rem(font-size, 14px);
+
+        color: #777;
+
+        @include rem(margin-bottom, 25px);
+    }
+
+    .img-center {
+        a {
+            display: block;
+        }
+
+        @include centerer-img(230px);
+
+        @include respond-to(568px, max) {
+            @include centerer-img(160px);
+        }
+
+
+        @include respond-to(700px, 767px) {
+            @include centerer-img(145px);
+        }
+    }
+
+    .btn {
+        @include respond-to(410px, 767px) {
+            @include rem(font-size, 14px);
+        }
+    }
+}
+
+.upcoming-car-row {
+    h1 {
+        @include rem(font-size, 24px);
+
+        color: #1a1d32;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 600;
+        margin-top: 0;
+
+        @include rem(margin-bottom, 40px);
+
+        span {
+            font-weight: 300;
+        }
+    }
+
+    .row {
+        > div {
+            @include respond-to(600px, 767px) {
+                width: 33.33333%;
+            }
+        }
+    }
+
+    .cars-list {
+        padding: 0;
+
+        .img-center {
+            @include centerer-img(202px);
+
+            @include respond-to(410px, max) {
+                @include centerer-img(164px);
+            }
+
+
+            @include respond-to(411px, $media-xs) {
+                @include centerer-img(230px);
+            }
+
+
+            @include respond-to(600px, $media-xs) {
+                @include centerer-img(120px);
+            }
+        }
+
+        h2 {
+            @include rem(font-size, 24px);
+
+            color: #555;
+            font-weight: 600;
+            margin: 5px 0 0;
+        }
+
+        h4 {
+            margin: 0;
+            margin-bottom: 5px;
+
+            a {
+                color: #1a1d32;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .car-info {
+            @include rem(padding, 15px 0 15px 15px);
+        }
+
+        .row-table {
+            display: table;
+            width: 100%;
+
+            .date-col {
+                width: 125px;
+
+                @include respond-to(600px, 767px) {
+                    float: right;
+                }
+            }
+
+            .col {
+                display: table-cell;
+                vertical-align: top;
+
+                @include respond-to(600px, 767px) {
+                    display: block;
+                }
+
+
+                p {
+                    margin-bottom: 0;
+                }
+
+                .launch {
+                    @include rem(font-size, 12px);
+
+                    text-align: center;
+                    color: #777;
+                    margin-bottom: 3px;
+                }
+
+                .date {
+                    background-color: #ffae44;
+                    color: #fff;
+
+                    @include rem(font-size, 18px);
+
+                    font-weight: 600;
+                    padding: 3px 3px 3px 15px;
+                    position: relative;
+
+                    @include respond-to(600px, 767px) {
+                        text-align: center;
+                    }
+
+
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 15.5px 0 15.5px 10px;
+                        border-color: transparent transparent transparent #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.testimonials-row {
+    @include rem(margin-bottom, 55px);
+
+    h1 {
+        @include rem(font-size, 24px);
+
+        color: #1a1d32;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 600;
+        margin-top: 0;
+
+        @include rem(margin, 30px 0 10px);
+    }
+
+    .rating-display {
+        text-align: center;
+
+        @include rem(font-size, 18px);
+
+        @include rem(margin-bottom, 25px);
+
+        color: #555555;
+
+        span {
+            @include rem(font-size, 24px);
+
+            font-weight: bold;
+        }
+
+        .rating {
+            border: none;
+
+            //float: left;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        .rating > input {
+            display: none;
+        }
+
+        .rating > label:before {
+            margin: 3px;
+            font-size: 16px;
+            font-family: FontAwesome;
+            display: inline-block;
+            content: "\f005";
+        }
+
+        .rating > .half:before {
+            content: "\f089";
+            position: absolute;
+        }
+
+        .rating > label {
+            color: #d4d4d4;
+            float: right;
+        }
+
+        /***** CSS Magic to Highlight Stars on Hover *****/
+
+        .rating > input:checked ~ label,
+        .rating:not(:checked) > label:hover,
+        .rating:not(:checked) > label:hover ~ label {
+            color: #ffae44;
+        }
+
+        /* hover previous stars in list */
+
+        .rating > input:checked + label:hover,
+        .rating > input:checked ~ label:hover,
+        .rating > label:hover ~ input:checked ~ label,
+        .rating > input:checked ~ label:hover ~ label {
+            color: #ffae44;
+        }
+    }    
+
+    .row > .col-xs-12 {
+        @include respond-to(600px, 960px) {
+            width: 33.33333%;
+        }
+    }
+}
+
+.testimonials-list {
+    position: relative;
+
+    @include respond-to($media-xs, max) {
+        @include rem(padding-bottom, 15px);
+    }
+
+
+    .client-photo {
+        img {
+            width: 100%;
+        }
+    }
+
+    .client-testimonials {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        color: #fff;
+
+        @include rem(padding, 35px);
+        @include respond-to(600px, 960px) {
+            position: relative;
+            background-color: #ffffff;
+        }
+
+        h3 {
+            @include rem(font-size, 24px);
+
+            font-weight: 600;
+            margin-top: 0;
+            @include respond-to(600px, 960px) {
+                 color: #1a1d32;
+            }
+        }
+
+        p {
+            @include rem(font-size, 18px);
+
+            color: #cccccc;
+            @include respond-to(600px, 960px) {
+                 color: #333;
+            }
+
+            &.client-name {
+                @include rem(font-size, 16px);
+
+                font-weight: 600;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.blog-row {
+    @include rem(margin-bottom, 55px);
+
+    h1 {
+        @include rem(font-size, 24px);
+
+        color: #1a1d32;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 600;
+        margin-top: 0;
+    }
+
+    .row > .col-xs-12 {
+        @include respond-to(600px, $media-xs) {
+            width: 33.333333%;
+        }
+    }
+}
+
+.blog-list {
+    text-align: center;
+    border: 1px solid #cccccc;
+    background-color: #fff;
+
+    @include respond-to(568px, max) {
+        max-width: 370px;
+
+        @include rem(margin, 0 auto 15px);
+    }    
+
+    a {
+        color: #555555;
+        display: block;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    h3 {
+        margin: 0;
+
+        @include rem(font-size, 20px);
+
+        font-weight: 600;
+
+        @include rem(padding, 15px);
+
+        line-height: 30px;
+        min-height: 90px;
+
+        @include respond-to(700px, $media-xs) {
+            line-height: 22px;
+        }
+
+         @include respond-to(600px, 960px) {
+            @include multiline-text(14px, 1.4, 3);
+        }
+    }
+}
+
+.why-cartz-list {
+    background-color: #fff;
+    border: 1px solid #cccccc;
+    text-align: center;
+    position: relative;
+
+    @include rem(margin-top, 50px);
+
+    /* @include respond-to($media-xs, max) {
+        max-width: 290px;
+        margin: 0 auto;
+    } */
+
+    @include respond-to(700px, $media-xs) {
+        min-height: 250px;
+    }
+
+
+    &.workz {
+        @include respond-to(700px, $media-xs) {
+            min-height: 195px;
+        }
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: -40px;
+        left: 50%;
+
+        //transform: translateX(50%);
+        margin-left: -40px;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: #bf5f2c url("../images/vehicle-icon.png") center no-repeat;
+    }
+
+    &.trust:before {
+        background: #bf5f2c url("../images/trust-icon.png") center no-repeat;
+    }
+
+    &.solution:before {
+        background: #bf5f2c url("../images/solution-icon.png") center no-repeat;
+    }
+
+    &.get:before {
+        background: #fff url("../images/get-icon.png") center no-repeat;
+        border: 1px solid #ccc;
+    }
+
+    &.set:before {
+        background: #fff url("../images/set-icon.png") center no-repeat;
+        border: 1px solid #ccc;
+    }
+
+    &.vroom:before {
+        background: #fff url("../images/vroom-icon.png") center no-repeat;
+        border: 1px solid #ccc;
+    }
+
+    @include rem(padding, 70px 20px 20px);
+
+    h4 {
+        margin: 0;
+
+        @include rem(font-size, 20px);
+
+        color: #1a1d32;
+        font-weight: 600;
+
+        @include rem(padding, 15px 0 10px);
+    }
+
+    p {
+        font-weight: 300;
+
+        &.fix-title {
+            min-height: 70px;
+        }
+    }
+}
+
+.why-cartz-row {
+    @include rem(margin-bottom, 40px);
+
+    .row {
+        > div {
+            @include respond-to($media-xs, max) {
+                @include rem(padding-bottom, 20px);
+
+                @include rem(margin-bottom, 20px);
+
+                &:last-child {
+                    padding-bottom: 0;
+                    margin-bottom: 0;
+                }
+            }
+
+
+            &.col-xs-12 {
+                @include respond-to(700px, $media-xs) {
+                    width: 33.333333%;
+                }
+            }
+        }
+    }
+
+    h1 {
+        @include rem(font-size, 24px);
+
+        color: #1a1d32;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 600;
+        margin-top: 0;
+
+        span {
+            font-weight: 300;
+        }
+
+        @include respond-to($media-xs, max) {
+            @include rem(padding-bottom, 50px);
+        }
+    }
+}
+
+.hero-carousel {
+    ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+            list-style-type: none;
+        }
+    }
+}
+
+.owl-theme .owl-controls .owl-buttons div {
+    text-indent: -9999px;
+    height: 86px;
+    width: 86px;
+    border-radius: 0;
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    margin-top: -86px;
+    cursor: pointer;
+    transform: translateY(50%);
+    background-color: rgba(#000000, 0.4);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include vendor-prefixes(transition, all 0.3s ease);
+
+    &:hover {
+        background-color: #000;
+    }
+
+    @include respond-to(768px, max) {
+        width: 40px;
+        height: 40px;
+        margin-top: -40px;
+    }
+}
+
+.owl-theme .owl-controls .owl-buttons div.owl-prev {
+    background-image: url("../images/prev.png");
+    left: -5px;
+
+    @include respond-to(768px, max) {
+        left: -5px;
+    }
+}
+
+.owl-theme .owl-controls .owl-buttons div.owl-next {
+    background-image: url("../images/next.png");
+    right: -5px;
+
+    @include respond-to(768px, max) {
+        right: -5px;
+    }
+}
+
+.home-search {
+    max-width: 915px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 40px;
+    top: -130px;
+    margin-bottom: -200px;
+    @include respond-to($media-xs, max) {
+        top: -60px;
+        margin-bottom: -60px;
+    }
+
+    .search-wrapper {
+        position: relative;
+        width: 100%;       
+    }
+
+    h1 {
+        @include rem(font-size, 36px);
+
+        font-weight: 600;
+        color: #fff;
+
+        @include rem(padding, 0 35px);
+
+        @include respond-to($media-xs, max) {
+            @include rem(font-size, 26px);
+        }
+    }
+
+    .search-row {
+        background-color: #23273f;
+        color: #999999;
+
+        @include rem(padding, 10px 35px 30px);
+
+        [type="radio"]:checked,
+        [type="radio"]:not(:checked) {
+            position: absolute;
+            left: -9999px;
+        }
+
+        [type="radio"]:checked + label,
+        [type="radio"]:not(:checked) + label {
+            position: relative;
+            padding-left: 20px;
+            cursor: pointer;
+            line-height: 12px;
+            display: inline-block;
+            color: #c0612e;
+            font-weight: normal;
+        }
+
+        [type="radio"]:not(:checked) + label {
+            color: #fff;
+        }
+
+        .checkbox-inline + .checkbox-inline, .radio-inline + .radio-inline {
+            @include respond-to(767px, max) {
+                margin-left: 0;
+            }
+        }
+
+        [type="radio"]:checked + label:before,
+        [type="radio"]:not(:checked) + label:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border: 1px solid #c0612e;
+            border-radius: 100%;
+            background: transparent;
+        }
+
+        [type="radio"]:not(:checked) + label:before {
+            border: 1px solid #999;
+        }
+
+        [type="radio"]:checked + label:after,
+        [type="radio"]:not(:checked) + label:after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #c0612e;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            border-radius: 100%;
+            -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+        }
+
+        [type="radio"]:not(:checked) + label:after {
+            opacity: 0;
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+
+        [type="radio"]:checked + label:after {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+        .radio-inline {
+            padding-left: 0;
+        }
+
+        .radio-inline label {
+            @include rem(font-size, 14px);
+
+            color: #c0612e;
+            font-weight: normal;
+        }
+
+        .checkbox-inline + .checkbox-inline, .radio-inline + .radio-inline {
+            margin-left: 15px;
+        }
+    }
+}
+
+.select-row {
+    display: table;
+    width: 100%;
+    margin: 0 -3px;
+
+    @include rem(margin-top, 15px);
+
+    .select-group {
+        display: table-cell;
+        vertical-align: top;
+        padding: 0 3px;
+
+        @include rem(font-size, 18px);
+
+        font-weight: 300;
+
+        @include respond-to(400px, max) {
+            display: block;
+            width: 100%;
+
+            @include rem(margin-bottom, 10px);
+        }
+
+
+        @include respond-to(410px, 680px) {
+            display: inline-block;
+            width: 49%;
+
+            @include rem(margin-bottom, 10px);
+        }
+
+
+        &:last-child {
+            width: 170px;
+
+            @include respond-to(400px, max) {
+                width: 100%;
+            }
+
+
+            @include respond-to(410px, 680px) {
+                width: 49%;
+            }
+        }
+
+        input[type=submit] {
+            background-color: #c0612e;
+            color: #fff;
+            text-align: center;
+            min-height: 48.35px;
+            width: 100%;
+            border: none;
+            border-radius: 3px;
+            text-transform: uppercase;
+
+            @include respond-to(410px, 680px) {
+                min-height: 45.35px;
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "grunt-getting-started",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-csslint": "^2.0.0",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-imagemin": "latest",
+    "grunt-contrib-jade": "^1.0.0",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-pug": "^1.0.0",
+    "grunt-contrib-sass": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "imagemin-mozjpeg": "^6.0.0",
+    "jade": "^1.11.0",
+    "jshint-stylish": "latest"
+  }
+}

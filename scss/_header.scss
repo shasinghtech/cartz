@@ -1,0 +1,146 @@
+.navbar-header {
+    float: none;
+}
+
+.navbar-toggle {
+    display: block;
+    position: absolute;
+
+    /* float: left; */
+    left: 15px;
+    border: none;
+}
+
+.navbar-collapse.collapse {
+    display: none !important;
+}
+
+.navbar-nav {
+    float: none !important;
+}
+
+.navbar-nav > li {
+    float: none;
+}
+
+.navbar-collapse.collapse.in {
+    display: block !important;
+}
+
+.navbar-brand {
+    width: 99px;
+    height: 35px;
+    background: url("../images/logo.png") 0 0 no-repeat;
+    text-indent: -999999px;
+    margin-top: 7px;
+    margin-left: 65px;
+}
+
+ul.custom-nav {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    margin-top: -2px;
+
+    @include respond-to(480px, max) {
+        display: none;
+    }
+
+
+    li {
+        list-style: none;
+        display: inline-block;
+        position: relative;
+
+        @include rem(font-size, 14px);
+
+        @include rem(padding, 0 10px);
+
+        color: #cccccc;
+
+        &.email:before, &.call:before {
+            content: "";
+            width: 21px;
+            height: 21px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        &.email:before {
+            background: url("../images/email.png") 0 0 no-repeat;
+        }
+
+        &.call:before {
+            background: url("../images/call.png") 0 0 no-repeat;
+        }
+
+        &.email, &.call {
+            padding-left: 28px;
+        }
+
+        &.call {
+            border-right: 1px solid #fff;
+        }
+
+        a {
+            color: #cccccc;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        .select-style {
+            border: none;
+            border-radius: 0;
+            background-color: transparent;
+            background: transparent;
+            overflow: inherit;
+
+            &:after {
+                top: 50%;
+                left: 85%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+                border-color: rgba(0, 0, 0, 0);
+                border-top-color: #ffffff;
+                border-width: 5px;
+                margin-top: -2px;
+                z-index: 100;
+                background: none;
+            }
+
+            &:before {
+                top: 5px;
+                left: 0;
+                content: "";
+                height: 21px;
+                width: 21px;
+                position: absolute;
+                pointer-events: none;
+                margin-top: -5px;
+                z-index: 100;
+                background: url("../images/location.png") 0 0 no-repeat;
+            }
+
+            select {
+                @include rem(padding, 0 20px 0 25px);
+
+                color: #cccccc;
+            }
+        }
+    }
+}
+
+.navbar-inverse {
+    background-color: rgba(#000, 0.8);
+    border-color: transparent;
+}

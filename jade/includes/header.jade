@@ -1,0 +1,27 @@
+.container-fluid
+	nav.navbar.navbar-inverse.navbar-fixed-top
+		.navbar-header
+			a.navbar-brand(href='index.html') Cartz
+			button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+				span.icon-bar
+				span.icon-bar
+				span.icon-bar
+			ul.custom-nav
+				li.email
+					a(href="mailto:sales@cartz.co.in") sales@cartz.co.in
+				li.call 
+					| +918080430400
+				li
+					.select-style
+						select
+							option(value="Bengaluru") Bengaluru
+							option(value="Mumbai") Mumbai
+							option(value="Delhi") Delhi
+		.navbar-collapse.collapse
+			ul.nav.navbar-nav
+				li.active
+					a(href='#') Home
+				li
+					a(href='#about') About
+				li
+					a(href='#contact') Contact

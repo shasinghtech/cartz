@@ -1,0 +1,254 @@
+mixin offerTable
+	tr
+		td
+			//input(type="checkbox")
+			.checkbox
+				label
+					input(type="checkbox", value="")
+					span.cr
+						i.cr-icon.glyphicon.glyphicon-ok
+		td
+			h4 
+				a(href="#") Maruti Suzuki Alto 800 LXI
+			p 796cc Petrol, Manual, 24.7 kmpl
+		td
+			span.cut ₹ 3,91,682
+		td
+			span.green ₹ 20,000
+		td
+			span.blue ₹ 3,71,682
+mixin overview(value, prop)
+	tr
+		td(width="50%") #{value}
+		td(width="50%") #{prop}
+mixin cityCarList(imgPath)
+	.city-car-list
+		a(href="#")
+			.car-photo
+				img(src="images/"+imgPath, alt="Maruti Suzuki Alto K10")
+			.car-details
+				h5 Maruti Suzuki Alto K10
+				p.off-price ₹ 4,60,231(₹ 20,000 off)
+				p.offer-price ₹ 4,40,231
+				p On-Road Price Bangalore
+
+extends ../layout/template.jade
+
+block content
+	.container
+		ul.breadcrumb
+			li: a(href="index.html") Home
+			li: a(href="#") Maruti Suzuki
+			li.active Alto 800
+		.deal-container
+			h1 Big Savings on Maruti Suzuki Alto 800
+			.deal-wrapper
+				.row
+					.col-xs-12.col-sm-6.col-md-6.col-lg-5
+						.car-photo
+							ul
+								li.white
+									img(src="images/alto-white.jpg", alt="Alto")
+								li.blue
+									img(src="images/alto-blue.jpg", alt="Alto")
+								li.green
+									img(src="images/alto-green.jpg", alt="Alto")
+								li.red
+									img(src="images/alto-red.jpg", alt="Alto")
+					.col-xs-12.col-sm-6.col-md-6.col-lg-7
+						.car-short-info
+							h3 Maruti Suzuki Dzire
+							.version
+								span Version
+								span 
+									.select-style
+										select
+											option(value="LXI") LXI
+											option(value="Standard") Standard
+											option(value="Delux") Delux
+							.color
+								span Color
+								span 
+									ul
+										li.white.active(data-color="white") White
+										li.blue(data-color="blue") Blue
+										li.green(data-color="green") Green
+										li.red(data-color="red") Red
+							.mfr-date Manufacturing Year: 
+								span 2017
+							.price-info 
+								span.mrp ₹ 3,91,682 
+								span.discount (₹ 20,000 off)  
+								span.left-car 1 Car Left
+							.discount-price
+								.row
+									.col-xs-12.col-sm-6                                 
+										h4 ₹ 4.44 Lakhs
+										p Final On-Road Price Bangalore
+									.col-xs-12.col-sm-6
+										a(href="#") View Break up
+										.emi Indicative EMI 
+											span ₹ 6,083
+								p.exc Exchange bonus for cars less than 7 Years Rs.25000/-, and for more than 7 Years Rs.15000/-
+							.action
+								a(href="#") Next
+								a(href="#").emi-btn Get EMI Assistance
+								p Reserve this car for just ₹ 999. 100% refundable, no questions asked.
+		.user-benefit
+			h4 3 Reasons to book this Alto 800 right now!
+			.row
+				.col-xs-12.col-sm-4
+					h3 20,000 Cash Discount
+					p Exclusively for CarWale users
+				.col-xs-12.col-sm-4
+					h3 Authorized Dealers
+					p Offers only from brand authorized dealerships
+				.col-xs-12.col-sm-4
+					h3 Priority Delivery
+					p This car is available with priority delivery
+		.offer-container
+			h2 All Offers On Maruti Alto 800
+			.offer-wrapper
+				.table-responsive
+					table.table.table-hover
+						thead
+							tr
+								th
+								th Variants
+								th On-Road Price
+								th Offer
+								th Final Price
+						tbody
+							+offerTable
+							+offerTable
+							+offerTable
+				.assistance
+					.row
+						.col-xs-12.col-sm-6
+							.mobile-div
+								input(type="text", placeholder="+91 Mobile Number")
+								.button
+									button(type="submit") Request Assistance
+							p Select variants to get assistance
+						.col-xs-12.col-sm-6
+							h5 For any queries, call Cartz at 
+								span 
+									a(href="tel:+918080430400") +918080430400 
+									| (Toll free)
+		.user-benefit.option-2
+			h2 3 Easy steps to own your dream car
+			.row
+				.col-xs-12.col-sm-4
+					h3 1. Reserve your car online
+					p Just pay online booking amount of <br> ₹ 999 and reserve the car
+				.col-xs-12.col-sm-4
+					h3 2. Visit dealership
+					p Take a test drive. Provide documents & make remaining payment
+				.col-xs-12.col-sm-4
+					h3 3. Get delivery of car
+					p Drive home in your dream car
+			.benefit
+				p 100% Moneyback Guarantee
+				p 100% refund of online booking amount in case you change your mind. No questions asked.
+				p To read our complete FAQs 
+					a(href="#") click here.
+		.bottom-row
+			.row
+				.col-xs-12.col-sm-7.col-md-9
+					.feature-row
+						ul.nav.nav-tabs
+							li.active
+								a(data-toggle='tab', href='#overview') Overview 
+							li
+								a(data-toggle='tab', href='#features') Features
+							li
+								a(data-toggle='tab', href='#specifications') Specifications
+						.tab-content
+							#overview.tab-pane.fade.in.active
+								.tab-container
+									h3 Maruti Suzuki Alto 800 LXI Overview
+									.table-responsive
+										table.table.table-hover
+											tbody
+												+overview("Length", "3430 mm")
+												+overview("Width", "1490 mm")
+												+overview("Height", "1475 mm")
+												+overview("Seating Capacity ", "5 Person")
+												+overview("Displacement", "796 cc")
+												+overview("Fuel Type", "Petrol")
+												+overview("Max Power (bhp@rpm)", "48 bhp @ 6000 RPM")
+												+overview("Max Torque (Nm@rpm)", "69 Nm @ 3500 RPM")
+												+overview("Mileage (ARAI)   ", "24.7 kmpl")
+												+overview("Alternate Fuel", "Not Applicable")
+												+overview("Transmission Type", "Manual")
+												+overview("No of gears", "5 Gears")
+												+overview("Drivetrain", "Front Wheel Drive")
+												+overview("Air Conditioner", "Manual")
+												+overview("Power Windows", "Front Only")
+												+overview("Central Locking", "No")
+												+overview("Anti-Lock Braking System (ABS)", "No")
+												+overview("Airbags", "No")
+												+overview("Seat Upholstery", "Fabric")
+							#features.tab-pane.fade
+								.tab-container
+									h3 Maruti Suzuki Alto 800 LXI Features
+									.table-responsive
+										table.table.table-hover
+											tbody
+												+overview("Length", "3430 mm")
+												+overview("Width", "1490 mm")
+												+overview("Height", "1475 mm")
+												+overview("Seating Capacity ", "5 Person")
+												+overview("Displacement", "796 cc")
+												+overview("Fuel Type", "Petrol")
+												+overview("Max Power (bhp@rpm)", "48 bhp @ 6000 RPM")
+												+overview("Max Torque (Nm@rpm)", "69 Nm @ 3500 RPM")
+												+overview("Mileage (ARAI)   ", "24.7 kmpl")
+												+overview("Alternate Fuel", "Not Applicable")
+												+overview("Transmission Type", "Manual")
+												+overview("No of gears", "5 Gears")
+												+overview("Drivetrain", "Front Wheel Drive")
+												+overview("Air Conditioner", "Manual")
+												+overview("Power Windows", "Front Only")
+												+overview("Central Locking", "No")
+												+overview("Anti-Lock Braking System (ABS)", "No")
+												+overview("Airbags", "No")
+												+overview("Seat Upholstery", "Fabric")
+							#specifications.tab-pane.fade
+								.tab-container
+									h3 Maruti Suzuki Alto 800 LXI Specifications
+									.table-responsive
+										table.table.table-hover
+											tbody
+												+overview("Length", "3430 mm")
+												+overview("Width", "1490 mm")
+												+overview("Height", "1475 mm")
+												+overview("Seating Capacity ", "5 Person")
+												+overview("Displacement", "796 cc")
+												+overview("Fuel Type", "Petrol")
+												+overview("Max Power (bhp@rpm)", "48 bhp @ 6000 RPM")
+												+overview("Max Torque (Nm@rpm)", "69 Nm @ 3500 RPM")
+												+overview("Mileage (ARAI)   ", "24.7 kmpl")
+												+overview("Alternate Fuel", "Not Applicable")
+												+overview("Transmission Type", "Manual")
+												+overview("No of gears", "5 Gears")
+												+overview("Drivetrain", "Front Wheel Drive")
+												+overview("Air Conditioner", "Manual")
+												+overview("Power Windows", "Front Only")
+												+overview("Central Locking", "No")
+												+overview("Anti-Lock Braking System (ABS)", "No")
+												+overview("Airbags", "No")
+												+overview("Seat Upholstery", "Fabric")
+				.col-xs-12.col-sm-5.col-md-3
+					.city-car
+						h4 Best Offers in Bangalore
+						+cityCarList("car-img-1.jpg")
+						+cityCarList("car-img-2.jpg")
+						+cityCarList("car-img-3.jpg")
+						+cityCarList("car-img-4.jpg")
+						+cityCarList("car-img-1.jpg")
+						+cityCarList("car-img-2.jpg")
+						+cityCarList("car-img-3.jpg")
+						+cityCarList("car-img-1.jpg")
+						.view
+							a(href="#") View more

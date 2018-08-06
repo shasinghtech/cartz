@@ -1,0 +1,226 @@
+mixin cars-list(imgPath, title, price)
+	.cars-list
+		.row
+			.col-xs-12.col-sm-6
+				.img-center
+					a(href="deal.html")
+						img(src="images/"+imgPath, alt="#{title}")
+			.col-xs-12.col-sm-6
+				h4 #{title}
+				h1 ₹ #{price} Lakhs
+				p Avg Ex-Showroom (incl. GST)
+				a(href="#").btn.btn-orange Check On-Road Price
+
+mixin upcomingCarList(imgPath, title, price, date)
+	.col-xs-12.col-sm-4
+					.cars-list
+						.img-center
+							a(href="#")
+								img(src="images/"+imgPath, alt="#{title}")
+						.car-info
+							h4 
+								a(href="#") #{title}
+							.row-table
+								.col
+									h2 ₹ #{price} Lakhs
+									p Estimated Price
+								.col.date-col
+									.launch Expected Launch
+									.date #{date}
+mixin slider()
+	li
+				a(href="#")
+					img(src="images/slider-1.jpg", alt="Volkswagen Polo")
+extends ../layout/template.jade
+block body
+	- var authenticated = true
+
+block content
+	.hero-carousel
+		ul.car-carousel
+			+slider
+			+slider
+			+slider
+	.home-search
+		.search-wrapper
+			h1 Search a car right away
+			.search-row
+				form
+					.radioGroup
+						span.radio-inline
+							input(type="radio", name="car", id="new", value="New Car", checked)
+							label(for="new") NEW CAR
+						span.radio-inline
+							input(type="radio", name="car", id="used", value="used Car")
+							label(for="used") USED CAR
+					.select-row
+						.select-group
+							.select-style
+								select
+									option(value="Price") Price
+									option(value="min") Min 10K - Max 50K
+									option(value="min") Min 50K - Max 1L
+						.select-group
+							.select-style
+								select
+									option(value="Price") Vehicle Type
+									option(value="min") Min 10K - Max 50K
+									option(value="min") Min 50K - Max 1L
+						.select-group
+							.select-style
+								select
+									option(value="Price") Model
+									option(value="min") Min 10K - Max 50K
+									option(value="min") Min 50K - Max 1L
+						.select-group
+							input(type="submit", value="Search")
+	.tab-wrapper
+		.container
+			ul.nav.nav-tabs
+				li.active
+					a(data-toggle='tab', href='#popularCar') Popular Car
+				li
+					a(data-toggle='tab', href='#justLaunced') Just Launced	
+			.tab-content
+				#popularCar.tab-pane.fade.in.active
+					.tab-container
+						.row.main-row
+							.col-xs-12.col-sm-6
+								+cars-list("car-img-1.jpg", "Maruti Suzuki Dzire", "4.44")
+							.col-xs-12.col-sm-6
+								+cars-list("car-img-2.jpg", "Tata Tiago", "3.36 ")
+							.col-xs-12.col-sm-6
+								+cars-list("car-img-3.jpg", "Hyundai Elite i20", "5.33")
+							.col-xs-12.col-sm-6
+								+cars-list("car-img-4.jpg", "Maruti Swift", "5.16")
+				#justLaunced.tab-pane.fade
+					.tab-container
+						.row.main-row
+							.col-xs-12.col-sm-6
+								+cars-list("car-img-4.jpg", "Maruti Swift", "5.16")
+							.col-xs-12.col-sm-6
+								+cars-list("car-img-1.jpg", "Maruti Suzuki Dzire", "4.44")
+							.col-xs-12.col-sm-6
+								+cars-list("car-img-2.jpg", "Tata Tiago", "3.36 ")
+							.col-xs-12.col-sm-6
+								+cars-list("car-img-3.jpg", "Hyundai Elite i20", "5.33")
+	.upcoming-car-row
+		.container
+			h1 Upcoming 
+				span Cars
+			.row
+				+upcomingCarList("car-img-7.jpg", "Volvo V90 Cross Country", "60 - 65", "12 July 2017")
+				+upcomingCarList("car-img-6.jpg", "Skoda Octavia Facelift", "16 - 25", "13 July 2017")
+				+upcomingCarList("car-img-5.jpg", "Datsun Redi-GO 1.0", "4 - 5", "Aug 2017")
+	.testimonials-row
+		.container-fluid
+			h1 Testimonials
+			.rating-display 
+				fieldset.rating
+					input#star5(type="radio", name="rating", value="5")
+					label.full(for="star5", title="Awesome - 5 stars")
+					input#star4half(type="radio", name="rating", value="4 and a half")
+					label.half(for="star4half", title="Pretty good - 4.5 stars")
+					input#star4(type="radio", name="rating", value="4")
+					label.full(for="star4", title="Pretty good - 4 stars")
+					input#star3half(type="radio", name="rating", value="3 and a half")
+					label.half(for="star3half", title="Meh - 3.5 stars")
+					input#star3(type="radio", name="rating", value="3")
+					label.full(for="star3", title="Meh - 3 stars")
+					input#star2half(type="radio", name="rating", value="2 and a half")
+					label.half(for="star2half", title="Kinda bad - 2.5 stars")
+					input#star2(type="radio", name="rating", value="2")
+					label.full(for="star2", title="Kinda bad - 2 stars")
+					input#star1half(type="radio", name="rating", value="1 and a half")
+					label.half(for="star1half", title="Meh - 1.5 stars")
+					input#star1(type="radio", name="rating", value="1")
+					label.full(for="star1", title="Sucks big time - 1 star")
+					input#starhalf(type="radio", name="rating", value="half")
+					label.half(for="starhalf", title="Sucks big time - 0.5 stars") 
+				| Rated 4.5/5 by 
+				span 10,000+ 
+				| Customers
+			.row
+				.col-xs-12.col-sm-4
+					.testimonials-list
+						.client-photo
+							img(src="images/client-3.jpg", alt="Maruti Suzuki Alto")
+						.client-testimonials
+							h3 Maruti Suzuki Alto
+							p Selling a car was considered as a difficult process but it happened smoothly at cars24.
+							p.client-name - John Doe
+				.col-xs-12.col-sm-4
+					.testimonials-list
+						.client-photo
+							img(src="images/client-2.jpg", alt="Maruti Suzuki Alto")
+						.client-testimonials
+							h3 Maruti Suzuki Alto
+							p Selling a car was considered as a difficult process but it happened smoothly at cars24.
+							p.client-name - John Doe
+				.col-xs-12.col-sm-4
+					.testimonials-list
+						.client-photo
+							img(src="images/client-1.jpg", alt="Maruti Suzuki Alto")
+						.client-testimonials
+							h3 Maruti Suzuki Alto
+							p Selling a car was considered as a difficult process but it happened smoothly at cars24.
+							p.client-name - John Doe
+	.container
+		.why-cartz-row
+			h1 
+				span Why 
+				| Cartz
+			.row
+				.col-xs-12.col-sm-4
+					.why-cartz-list
+						h4 CLUB FOR YOUR VEHICLE
+						p Get access to great offers, do away with the trouble of remembering dates important to your vehicle, get expert tips and exclusive assistance. Oh, and it's FREE!
+				.col-xs-12.col-sm-4
+					.why-cartz-list.trust
+						h4 TRUST & TRANSPARENCY
+						p Get access to great offers, do away with the trouble of remembering dates important to your vehicle, get expert tips and exclusive assistance. Oh, and it's FREE!
+				.col-xs-12.col-sm-4
+					.why-cartz-list.solution
+						h4 ONE STOP SOLUTION
+						p Get access to great offers, do away with the trouble of remembering dates important to your vehicle, get expert tips and exclusive assistance. Oh, and it's FREE!
+		.why-cartz-row
+			h1 
+				span How it  
+				| Workz
+			.row
+				.col-xs-12.col-sm-4
+					.why-cartz-list.workz.get
+						h4 GET
+						p.fix-title Explore the best service providers closest to you
+				.col-xs-12.col-sm-4
+					.why-cartz-list.workz.set
+						h4 Set
+						p.fix-title Book a service online. Select desired services, schedule appointments and avail free pick & drops
+				.col-xs-12.col-sm-4
+					.why-cartz-list.workz.vroom
+						h4 Vroom
+						p.fix-title Walk out with an experience to cherish! Share your feedback and keep coming back to us
+
+		
+	.blog-row
+		.container
+			h1 Blog
+			.row
+				.col-xs-12.col-sm-4
+					.blog-list
+						a(href="#")
+							.blog-img
+								img(src="images/car-img-10.jpg", alt="Simple Steps to Save Fuel Without Driving Less")
+							h3 Simple Steps to Save Fuel Without Driving Less
+				.col-xs-12.col-sm-4
+					.blog-list
+						a(href="#")
+							.blog-img
+								img(src="images/car-img-9.jpg", alt="Simple Steps to Save Fuel Without Driving Less")
+							h3 Tips for maintaining a Healthy Car Battery
+				.col-xs-12.col-sm-4
+					.blog-list
+						a(href="#")
+							.blog-img
+								img(src="images/car-img-8.jpg", alt="Simple Steps to Save Fuel Without Driving Less")
+							h3 Get Set Vroom
